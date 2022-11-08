@@ -36,7 +36,7 @@ include 'includes/session.php'
                   <a class = "nav-item nav-link" href="login.php">Login <span class = "sr-only">(current)</span></a>
               <?php } else { 
               ?>
-                <a class ="nav-item nav-link" href="#"><span>Hello <?php echo $_SESSION['username'] ?> ! </span> <span class="sr-only">(current)</span></a>
+                <a class ="nav-item nav-link" href="#"><span>Hello <?php echo $_SESSION['username'] ?>! </span> <span class="sr-only">(current)</span></a>
                 <a class = "nav-item nav-link" href="logout.php"> Logout <span class = "sr-only">(current)</span></a>
               <?php } ?>  
             </div>

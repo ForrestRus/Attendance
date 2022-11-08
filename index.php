@@ -24,7 +24,7 @@
   <div class="form-group">
     <label for="specialty" >Area of Specialty</label>
     <select class="form-control" id="specialty">
-    <option value = "1">Database Admin</option>
+    <option value>Database Admin</option>
     <option >Software Developer</option>
     <option >Web Administrator</option>
     <option >Other</option>

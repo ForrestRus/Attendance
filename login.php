@@ -36,7 +36,11 @@
                <td><label for="inputPassword3">Password: *</label></td>
                <td><input type="password" name= "password" class="form-control" id="password"></td>
      </table><br/><br/>
+
+           <div class="d-grid gap-2">
           <input type= "submit" value= "Login" class= "btn btn-info btn-block"> <br/>
+           </div>
+           
           <a href = "#">Forgot Password</a>
      
  
