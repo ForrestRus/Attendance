@@ -22,7 +22,8 @@
 
       $isSuccess = $crud->insertAttendees($fname,$lname, $dob, $email, $contact, $specialty, $avatar_path);
       $specialtyName = $crud->getSpecialtyById($specialty);
-     var_dump($specialtyName);
+       var_dump($specialtyName);
+      
       if ($isSuccess){
           SendEmail::SendMail($email, 'Welcome to IT Conference 2022', 'You have been Registered sucessfully\'s IT Conference');
 
@@ -38,12 +39,40 @@
 ?>
 <h1 class="text-center text-"> You Have Been Registered!</h1>
 
-     <!--
+   <img src="<?php echo $destination; ?>" class="rounded-circle" style="width: 20%; height: 20%" />
+
+<div class="card" style="width: 25rem;">
+  <div class="card-body">
+    <h5 class="card-title">
+        <?php echo $_POST['firstname'] . ' '. $_POST['lastname']; ?>
+     </h5>
+    <h6 class="card-subtitle mb-2 text-muted">
+    <?php echo $specialtyName['name'];  ?>
+    </h6>
+    <p class="card-text">
+        Date of Birth: <?php echo $_POST['dob']; ?>
+    </p>
+    <p class="card-text">
+       Email Address: <?php echo $_POST['email']; ?>
+       
+    </p>
+    <p class="card-text">
+        Contact Number: <?php echo $_POST['phone']; ?>
+    </p>
+   
+  </div>
+</div>
+<br>
+<br>
+<br>
+<?php require_once 'includes/footer.php'; ?>
+
+  <!--
             (USING GET ACTION)     
      <div class="card" style="width: 28rem;">
   <div class="card-body">
     <h5 class="card-title">
-        <?php ///echo $_GET['firstname'] . ' '. $_GET['lastname']; ?>
+    <?php ///echo $_GET['firstname'] . ' '. $_GET['lastname']; ?>
      </h5>
     <h6 class="card-subtitle mb-2 text-muted">
     <?php //echo $specialtyName['name']; ?>
@@ -60,29 +89,3 @@
    
   </div>
 </div> -->
-
-
-<div class="card" style="width: 28rem;">
-  <div class="card-body">
-    <h5 class="card-title">
-        <?php echo $_POST['firstname'] . ' '. $_POST['lastname']; ?>
-     </h5>
-    <h6 class="card-subtitle mb-2 text-muted">
-    <?php echo $specialtyName['name']; ?>
-    </h6>
-    <p class="card-text">
-        Date of Birth: <?php echo $_POST['dob']; ?>
-    </p>
-    <p class="card-text">
-       Email Address: <?php echo $_POST['email']; ?>
-    </p>
-    <p class="card-text">
-        Contact Number: <?php echo $_POST['phone']; ?>
-    </p>
-   
-  </div>
-</div>
-<br>
-<br>
-<br>
-<?php require_once 'includes/footer.php'; ?>

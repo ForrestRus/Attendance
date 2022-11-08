@@ -16,8 +16,10 @@
 
      
 ?>
+
+<img src="<?php echo empty($result['avatar_path']) ? "uploads/blank.png" : $result['avatar_path'] ; ?>" class="rounded-circle" style="width: 20%; height: 20%" />
     
-    <div class="card border-primary mb-3" style="max-width: 540px;">
+    <div class="card border-info mb-3" style="max-width: 540px;">
         <div class="row g-0">
             <div class="col-md-4">
            
