@@ -3,11 +3,11 @@
     $db = 'attendance_db';
     $user = 'root';
     $pass = '';
-    $charset = 'utf8mb4';
+   $charset = 'utf8mb4';
 
-    //Remote Database connection
+   // Remote Database connection
     //$host = 'applied-web.mysql.database.azure.com';
-    //$db = 'attendance';
+   // $db = 'attendance';
     //$user = 'appliedweb_user@applied-web';
     //$pass = 'P@ssword1';
     //$charset = 'utf8mb4';
@@ -30,5 +30,5 @@
     $crud = new crud($pdo); 
     $user = new user($pdo); 
 
-    //$user->insertUser("admin", "password");
+    $user->insertUser("admin", "password");
 ?>

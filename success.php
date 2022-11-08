@@ -22,7 +22,7 @@
 
       $isSuccess = $crud->insertAttendees($fname,$lname, $dob, $email, $contact, $specialty, $avatar_path);
       $specialtyName = $crud->getSpecialtyById($specialty);
-
+     var_dump($specialtyName);
       if ($isSuccess){
           SendEmail::SendMail($email, 'Welcome to IT Conference 2022', 'You have been Registered sucessfully\'s IT Conference');
 
