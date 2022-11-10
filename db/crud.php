@@ -11,8 +11,8 @@
         //function to insert new records in attendee database
         public function insertAttendees($fname, $lname, $dob, $email, $contact, $specialty, $avatar_path){
             try {
-                $sql= "INSERT INTO attendee (firstname,lastname,dob,email,contactnumber,specialty_id, avatar_path) 
-                VALUES (:fname,:lname,:dateofbirth,:email,:contact,:specialty, avatar_path)";
+                $sql= "INSERT INTO attendee (firstname,lastname,dateofbirth,email,contactnumber,specialty_id, avatar_path) 
+                VALUES (:fname,:lname,:dob,:email,:contact,:specialty, avatar_path)";
                 $stmt = $this->db->prepare($sql);
 
                 $stmt->bindparam(':fname',$fname);
@@ -34,8 +34,7 @@
 
         public function editAttendee($id, $fname, $lname, $dob, $email, $contact, $specialty){
             try{
-                $sql = "UPDATE `attendee` SET `firstname`=:fname,`lastname`=:lname,
-                `dateofbirth`=:dob,`emailaddress`=:email,`contactnumber`=:contact,`specialty_id`=:specialty 
+                $sql = "UPDATE `attendee` SET `firstname`=:fname,`lastname`=:lname, `dateofbirth`=:dob,`emailaddress`=:email,`contactnumber`=:contact,`specialty_id`=:specialty 
                 WHERE attendee_id = :id ";
 
                 $stmt = $this->db->prepare($sql);
@@ -72,7 +71,7 @@
 
         public function getAttendeeDetails($id){
             try{
-            $sql ="select * from attendee a inner join specialties s on a.specialty_id = s.specialty_id 
+            $sql =" Select * from attendee a inner join specialties s on a.specialty_id = s.specialty_id
             where attendee_id = :id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam (':id', $id);

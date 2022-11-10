@@ -6,13 +6,14 @@
 
      
 
-     if (isset($_POST['Register'])){
+     if (isset($_POST['submit'])){
       $fname = $_POST['firstname'];
       $lname = $_POST['lastname'];
       $dob = $_POST['dob'];
       $email = $_POST['email'];
       $contact = $_POST['phone'];
       $specialty = $_POST['specialty'];
+
       
       $orig_file = $_FILE["avatar"]["tmp_name"];
       $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
@@ -22,7 +23,8 @@
 
       $isSuccess = $crud->insertAttendees($fname,$lname, $dob, $email, $contact, $specialty, $avatar_path);
       $specialtyName = $crud->getSpecialtyById($specialty);
-       var_dump($specialtyName);
+      
+       //var_dump($specialtyName);
       
       if ($isSuccess){
           SendEmail::SendMail($email, 'Welcome to IT Conference 2022', 'You have been Registered sucessfully\'s IT Conference');
