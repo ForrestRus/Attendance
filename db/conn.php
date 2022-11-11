@@ -1,16 +1,16 @@
 <?php
-    $host = 'localhost';
-    $db = 'attendance_db';
-    $user = 'root';
-    $pass = '';
-   $charset = 'utf8mb4';
+    //$host = 'localhost';
+    //$db = 'attendance_db';
+    //$user = 'root';
+   //$pass = '';
+   //$charset = 'utf8mb4';
 
-   // Remote Database connection
-    //$host = 'applied-web.mysql.database.azure.com';
-   // $db = 'attendance';
-    //$user = 'appliedweb_user@applied-web';
-    //$pass = 'P@ssword1';
-    //$charset = 'utf8mb4';
+    //Remote Database connection
+    $host = 'applied-web.mysql.database.azure.com';
+    $db = 'Attendance';
+    $user = 'appliedweb_user@applied-web';
+    $pass = 'P@ssword1';
+    $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host; dbname=$db; charset=$charset";
 
