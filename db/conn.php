@@ -6,10 +6,10 @@
    //$charset = 'utf8mb4';
 
     //Remote Database connection
-    $host = 'applied-web.mysql.database.azure.com';
-    $db = 'Attendance';
-    $user = 'appliedweb_user@applied-web';
-    $pass = 'P@ssword1';
+    $host = 'remotemysql.com';
+    $db = 'UZ6WbBkYba';
+    $user = 'UZ6WbBkYba';
+    $pass = 'pIYX7cFPKd';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host; dbname=$db; charset=$charset";

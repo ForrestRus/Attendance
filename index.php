@@ -11,12 +11,12 @@
     <label for="firstname" >First Name</label>
     <input required type="text" class="form-control" id="firstname" name="firstname">
   </div>
-
+   <br>
   <div class="form-group">
     <label for="lastname" >Last Name</label>
     <input required type="text" class="form-control" id="lastname" name="lastname">
   </div>
-
+  <br>
   <div class="form-group">
     <label for="dob" >Date of Birth</label>
     <input type="text" class="form-control" id="dob" name="dob">
@@ -25,7 +25,7 @@
   <div class="form-group">
     <label for="specialty" >Area of Specialty</label>
     <select class="form-control" id="specialty" name="specialty">
-    <option >Database Admin</option>
+    <option >Database Administrator</option>
     <option >Software Developer</option>
     <option >Web Administrator</option>
     <option >Other</option>
