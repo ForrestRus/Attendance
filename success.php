@@ -15,13 +15,13 @@
       $specialty = $_POST['specialty'];
 
       
-      $orig_file = $_FILE["avatar"]["tmp_name"];
+      $orig_file = $_FILES["avatar"]["tmp_name"];
       $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
       $target_dir = 'uploads/';
       $destination = "$target_dir$contact.$ext";
       move_uploaded_file($orig_file, $destination);
 
-      $isSuccess = $crud->insertAttendees($fname,$lname, $dob, $email, $contact, $specialty, $avatar_path);
+      $isSuccess = $crud->insertAttendees($fname,$lname, $dob, $email, $contact, $specialty, $destination);
       $specialtyName = $crud->getSpecialtyById($specialty);
       
        //var_dump($specialtyName);
@@ -41,7 +41,7 @@
 ?>
 <h1 class="text-center text-"> You Have Been Registered!</h1>
 
-   <img src="<?php echo $destination; ?>" class="rounded-circle" style="width: 20%; height: 20%" />
+   <img src="<?php echo $destination; ?>" class= "rounded-circle" style="width: 20%; height: 20%" />
 
 <div class="card" style="width: 25rem;">
   <div class="card-body">
@@ -49,7 +49,7 @@
         <?php echo $_POST['firstname'] . ' '. $_POST['lastname']; ?>
      </h5>
     <h6 class="card-subtitle mb-2 text-muted">
-    <?php echo $specialtyName['name'];  ?>
+    <?php echo $_POST['specialty'];  ?>
     </h6>
     <p class="card-text">
         Date of Birth: <?php echo $_POST['dob']; ?>
@@ -67,6 +67,10 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+
+
 <?php require_once 'includes/footer.php'; ?>
 
   <!--

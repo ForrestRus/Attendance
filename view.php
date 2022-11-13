@@ -1,12 +1,11 @@
 <?php 
-     $title= 'View';
+     $title= 'View Records';
      require_once 'includes/header.php'; 
      require_once 'includes/auth_check.php';
      require_once 'db/conn.php';
      
      //Get Attendees by id
      if(!isset($_GET['id'])){
-        //echo "<h1 class = 'text-danger'> Please check details and try again</h1>";
         include 'includes/errormessage.php';
         
 
@@ -31,7 +30,7 @@
                 
                 <p class = "card-text">Date of Birth:<?php echo $result['dateofbirth']; ?>
                 <p class="card-text">Email Address:<?php echo $result['emailaddress']; ?></p>
-                <p class="card-text">Phone Number:<?php echo $result['contactnumber']; ?></p>
+                <p class="card-text">Contact Number:<?php echo $result['contactnumber']; ?></p>
                 <br>
 
                 <div class="card-footer"><small class="text-muted">Last updated 3 mins ago</small></div>
@@ -48,6 +47,9 @@
 
     <?php }?>
 
+<br>
+<br>
+<br>
 <br>
 <br>
 <?php require_once 'includes/footer.php'; ?>

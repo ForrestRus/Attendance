@@ -21,25 +21,26 @@
     <label for="dob" >Date of Birth</label>
     <input type="text" class="form-control" id="dob" name="dob">
   </div>
-
+    <br>
   <div class="form-group">
     <label for="specialty" >Area of Specialty</label>
-    <select class="form-control" id="specialty">
-    <option value>Database Admin</option>
+    <select class="form-control" id="specialty" name="specialty">
+    <option >Database Admin</option>
     <option >Software Developer</option>
     <option >Web Administrator</option>
     <option >Other</option>
 </select>
   </div>
+  <br>
     <div class="form-group">
     <label for="email">Email address</label>
-    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name ="email">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small name="email">
   </div>
-   
+   <br>
   <div class="form-group">
     <label for="phone">Contact Number</label>
-    <input type="text" class="form-control" id="phone" aria-describedby="phoneHelp">
+    <input type="text" class="form-control" id="phone" aria-describedby="phoneHelp" name = "phone">
     <small id="phoneHelp" class="form-text text-muted">We'll never share your number with anyone else.</small name="phone">
   </div>
   <br>

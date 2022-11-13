@@ -16,8 +16,6 @@
 
     try{
         $pdo = new PDO ($dsn, $user, $pass);
-        //echo "<h6 style='background-color:MediumSeaGreen;'> Database Loaded</h6>";
-        echo "<h6 class= 'text-success'>Database Loaded</h6>";
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     }catch (PDOException $e) {

@@ -44,6 +44,6 @@
           <a href = "#">Forgot Password</a>
      
  
-</form><br/><br/><br/>
+</form><br/><br/><br/><br><br>
 
 <?php require_once 'includes/footer.php'; ?>

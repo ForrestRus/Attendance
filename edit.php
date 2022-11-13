@@ -39,12 +39,10 @@
                     <input type="text" class="form-control" value = "<?php echo $attendee ['dateofbirth'] ?>" id="dob"  name="dob">
                 </div>
                 <div class="form-group">
-                        <label for="SelectSpecialty">Specialty</label>
-                        <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                        <select class="custom-select mr-sm-2" id="specialty" name="specialty">
+                        <label for="Specialty">Area of Expertise</label>
+                        <select class="form-control" id="specialty" name="specialty">
                             <?php while ($r = $results ->fetch (PDO::FETCH_ASSOC)) {?>
-                                <option value= "<?php echo $r['specialty_id'] ?>" <?php if($r['specialty_id']==
-                                $attendee['specialty_id']) echo 'selected'?>>
+                                <option value= "<?php echo $r['specialty_id'] ?>" <?php if($r['specialty_id']==$attendee['specialty_id']) echo 'selected'?>>
                                 <?php echo $r['name']; ?>
                             
                             </option>
@@ -77,6 +75,9 @@
 
 <?php }?>
     
+<br>
+<br>
+<br>
 <br>
 <br>
 <?php require_once 'includes/footer.php'; ?>
