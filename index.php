@@ -28,7 +28,6 @@
     <?php while($r = $results->fetch(PDO::FETCH_ASSOC)) {?>
        <option value="<?php echo $r['specialty_id'] ?>"><?php echo $r['name']; ?></option>
                 <?php }?>
-   
 </select>
   </div>
   <br>
