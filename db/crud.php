@@ -11,8 +11,8 @@
         //function to insert new records in attendee database
         public function insertAttendees($fname, $lname, $dob, $email, $contact, $specialty, $avatar_path){
             try {
-                $sql= "INSERT INTO attendee (firstname,lastname,dateofbirth,email,contactnumber,specialty_id, avatar_path) 
-                VALUES (:fname,:lname,:dob,:email,:contact,:specialty, avatar_path)";
+                $sql= "INSERT INTO attendee (firstname,lastname,dateofbirth, emailaddress,contactnumber,specialty_id, avatar_path) 
+                VALUES (:fname,:lname,:dob,:email,:contact,:specialty, :avatar_path)";
                 $stmt = $this->db->prepare($sql);
 
                 $stmt->bindparam(':fname',$fname);
