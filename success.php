@@ -39,7 +39,7 @@
 
      }
 ?>
-<h1 class="text-center text-"> You Have Been Registered!</h1>
+<!--<h1 class="text-center text-"> You Have Been Registered!</h1> -->
 
    <img src="<?php echo $destination; ?>" class= "rounded-circle" style="width: 20%; height: 20%" />
 
@@ -49,7 +49,7 @@
         <?php echo $_POST['firstname'] . ' '. $_POST['lastname']; ?>
      </h5>
     <h6 class="card-subtitle mb-2 text-muted">
-    <?php echo $_POST['specialty'];  ?>
+    <?php echo $specialtyName['name'];  ?>
     </h6>
     <p class="card-text">
         Date of Birth: <?php echo $_POST['dob']; ?>
