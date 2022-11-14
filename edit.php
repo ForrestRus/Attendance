@@ -67,10 +67,7 @@
     
         <br>
         <a href= "viewrecords.php" class="btn btn-info">Back to List</a>
-    
         <button type="Register" name="Register" class="btn btn-success btn-block" class="d-grid gap-2">Save Changes</button>
-    
-    
     </form>
 
 <?php }?>
