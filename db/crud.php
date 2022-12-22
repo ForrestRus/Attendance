@@ -9,19 +9,19 @@
         }
 
         //function to insert new records in attendee database
-        public function insertAttendees($fname, $lname, $dob, $email, $contact, $specialty, $avatar_path){
+        public function insertpatient($firstname, $lastname, $dateofbirth, $emailaddress, $contactnumber, $disability, $Password){
             try {
-                $sql= "INSERT INTO attendee (firstname,lastname,dateofbirth, emailaddress,contactnumber,specialty_id, avatar_path) 
-                VALUES (:fname,:lname,:dob,:email,:contact,:specialty, :avatar_path)";
+                $sql= "INSERT INTO patient (firstname, lastname, dateofbirth, emailaddress, contactnumber, disability_id, Password) 
+                VALUES (:fname,:lname,:dob,:email,:contact,:disability, :Pass)";
                 $stmt = $this->db->prepare($sql);
 
-                $stmt->bindparam(':fname',$fname);
-                $stmt->bindparam(':lname',$lname);
-                $stmt->bindparam(':dob',$dob);
-                $stmt->bindparam(':email',$email);
-                $stmt->bindparam(':contact',$contact);
-                $stmt->bindparam(':specialty',$specialty);
-                $stmt->bindparam(':avatar_path',$avatar_path);
+                $stmt->bindparam(':fname',$firstname);
+                $stmt->bindparam(':lname',$lastname);
+                $stmt->bindparam(':dob',$dateofbirth);
+                $stmt->bindparam(':email',$emailaddress);
+                $stmt->bindparam(':contact',$contactnumber);
+                $stmt->bindparam(':disability',$disability);
+                $stmt->bindparam(':Pass',$Password);
 
                 $stmt->execute ();
                 return true;
@@ -32,19 +32,19 @@
             }
         }
 
-        public function editAttendee($id, $fname, $lname, $dob, $email, $contact, $specialty){
+        public function editpatient($patientid, $firstname, $lastname, $dateofbirth, $emailaddress, $contactnumber, $disability){
             try{
-                $sql = "UPDATE `attendee` SET `firstname`=:fname,`lastname`=:lname, `dateofbirth`=:dob,`emailaddress`=:email,`contactnumber`=:contact,`specialty_id`=:specialty 
-                WHERE attendee_id = :id ";
+                $sql = "UPDATE `patient` SET `firstname`=:fname,`lastname`=:lname, `dateofbirth`=:dob,`emailaddress`=:email,`contactnumber`=:contact,`disability_id`=:disability 
+                WHERE patient_id = :id ";
 
                 $stmt = $this->db->prepare($sql);
-                $stmt->bindparam(':id',$id);
-                $stmt->bindparam(':fname',$fname);
-                $stmt->bindparam(':lname',$lname);
-                $stmt->bindparam(':dob',$dob);
-                $stmt->bindparam(':email',$email);
-                $stmt->bindparam(':contact',$contact);
-                $stmt->bindparam(':specialty',$specialty);
+                $stmt->bindparam(':id',$patientid);
+                $stmt->bindparam(':fname',$firstname);
+                $stmt->bindparam(':lname',$lastname);
+                $stmt->bindparam(':dob',$dateofbirth);
+                $stmt->bindparam(':email',$emailaddress);
+                $stmt->bindparam(':contact',$contactnumber);
+                $stmt->bindparam(':disability',$disability);
 
                 $stmt->execute ();
                 return true;
@@ -57,9 +57,9 @@
 
         }
 
-        public function getAttendees (){
+        public function getpatient(){
             try{
-            $sql = "SELECT * FROM `attendee`a inner join specialties s on a.specialty_id = s.specialty_id";
+            $sql = "SELECT * FROM `patient`a inner join disabilities s on a.disability_id = s.disability_id";
             $result = $this ->db->query($sql);
             return $result;
 
@@ -69,10 +69,10 @@
             }
         }
 
-        public function getAttendeeDetails($id){
+        public function getpatientDetails($id){
             try{
-            $sql =" Select * from attendee a inner join specialties s on a.specialty_id = s.specialty_id
-            where attendee_id = :id";
+            $sql =" Select * from patient a inner join disability s on a.disability_id = s.disability_id
+            where patient_id = :id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam (':id', $id);
             $stmt->execute();
@@ -86,11 +86,29 @@
             
         }
 
-        public function deleteAttendee($id){
+        public function getpatientlogin($emailaddress,$password){
             try{
-            $sql = "delete from attendee where attendee_id = :id"; 
+            $sql =" Select * from patient a inner join disability s on a.disability_id = s.disability_id
+            where 'emailaddress'= emailaddress AND 'password' = password";
             $stmt = $this->db->prepare($sql);
-            $stmt->bindparam (':id', $id);
+            $stmt->bindparam (':emailaddress', $emailaddress);
+            $stmt->bindparam (':password', $password);
+            $stmt->execute();
+            $result =$stmt->fetch();
+            return $result;
+
+            }catch (PDOException $e){
+                echo $e->getMessage();
+                return false;
+            }
+            
+        }
+
+        public function deletepatient($id){
+            try{
+            $sql = "delete from patient where patient_id = :id"; 
+            $stmt = $this->db->prepare($sql);
+            $stmt->bindparam (':patient_id', $id);
             $stmt->execute();
             return true;
             }catch (PDOException $e){
@@ -100,10 +118,10 @@
 
         }
 
-        public function getSpecialties (){
+        public function getdisabilities(){
             try{
 
-                $sql = "SELECT * FROM `specialties`";
+                $sql = "SELECT * FROM `disabilities`";
                 $result = $this->db->query($sql);
                 return $result;
                 
@@ -113,10 +131,10 @@
             }
         }
 
-        public function getSpecialtyById ($id){
+        public function getdisabilityById ($id){
             try{
 
-                $sql = "SELECT * FROM `specialties` where specialty_id = :id";
+                $sql = "SELECT * FROM `disabilities` where disability_id = :id";
                 $stmt = $this->db->prepare($sql);
                 $stmt->bindparam (':id', $id);
                 $stmt->execute();

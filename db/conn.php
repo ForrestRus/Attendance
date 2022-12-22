@@ -1,16 +1,16 @@
 <?php
-    /*$host = 'localhost';
-    $db = 'attendance_db';
+    $host = 'localhost';
+    $db = 'nhmsdb';
     $user = 'root';
    $pass = '';
-   $charset = 'utf8mb4';*/
+   $charset = 'utf8mb4';
 
     //Remote Database connection
-    $host = 'remotemysql.com';
+    /*$host = 'remotemysql.com';
     $db = 'UZ6WbBkYba';
     $user = 'UZ6WbBkYba';
     $pass = 'pIYX7cFPKd';
-    $charset = 'utf8mb4';
+    $charset = 'utf8mb4';*/
 
     $dsn = "mysql:host=$host; dbname=$db; charset=$charset";
 
@@ -28,5 +28,5 @@
     $crud = new crud($pdo); 
     $user = new user($pdo); 
 
-    $user->insertUser("admin", "password");
+    $user->insertUser("admin", "@dministrat0r");
 ?>
