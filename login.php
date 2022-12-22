@@ -14,7 +14,7 @@
           }else {
                $_SESSION['username'] = $username;
                $_SESSION['id'] = $result['id'];
-               header("Location: viewrecords.php");
+               header("Location: patient.php");
           }
 
 
